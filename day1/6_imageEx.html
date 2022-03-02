@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-image: url('../images/renoir02.png');
+            background-repeat: repeat-y;
+  
+        }
+        body{
+            background-image: url('../images/renoir01.png');
+             /* 백그라운드 이미지가 화면보다 작을때 반복하는 방법 설정 */
+  background-attachment: fixed; /* 내용이 길어서 스크롤 될때 백그라운드 이미지 스크롤 여부 설정 */
+  background-size: cover;   /* 백그라운드 이미지 크기가 브라우저의 최대크기와 동일하게 설정 */
+        }
+    </style>
+</head>
+<body>
+    <h2>특정 문단에 배경이미지 적용</h2>
+<!-- block요소 태그들의 가로크기는 기본 100%,세로크기는 내용에 따라 정해짐 -->
+<p>A background image for a p element:</p>
+
+<p style="background-image: url('../images/renoir04.png');">
+You can specify background images<br>
+for any visible HTML element.<br>
+In this example, the background image<br>
+is specified for a p element.<br>
+By default, the background-image<br>
+will repeat itself in the direction(s)<br>
+where it is smaller than the element<br>
+where it is specified. (Try resizing the<br>
+browser window to see how the<br>
+background image behaves.
+</p>
+
+<h2>특정 문단에 배경이미지 적용(헤더)</h2>
+
+<p>You can specify background images<br>
+for any visible HTML element.<br>
+In this example, the background image<br>
+is specified for a div element.<br>
+By default, the background-image<br>
+will repeat itself in the direction(s)<br>
+where it is smaller than the element<br>
+where it is specified. (Try resizing the<br>
+browser window to see how the<br>
+background image behaves.</p>
+</body>
+</html>

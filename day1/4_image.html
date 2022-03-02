@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 이미지 크기 확인. 파일 탐색기
+        예) 사진크기 460x460(픽셀), 크기 11kb(용량) 
+        디스플레이 모니터의 해상도 : 1920x1080(픽셀)
+        이미지 표시 태그 : img, 이미지 파일지정 속성 : src(url 또는 상대경로 파일로 저장)-->
+
+    <img src="../images/renoir01.png" alt="firefox">
+
+
+    <!-- 이미지의 크기 설정방법 1)width,height 속성으로 합니다(픽셀 또는 백분율) 
+        alt 속성은 여러가지 원인의 오류로 이미지 안될때 표시될 텍스트-->
+    <img src="../images/renoir01.png" alt="firefox" width="225px">
+    <img src="../images/renoir01.png" alt="firefox" width="225px" height="300px">
+
+    <img src="../images/renoir01.png" alt="firefox" width="50%">
+    <hr>
+    <!-- a태그안에 img 태그 -->
+    사진을 클릭해 보세요 <br> <!-- 마우스 올리면 마우스 포인터 변경 -->
+    <a href="http://www.naver.com" target ="_blank"><img src="../images/renoir02.png"></a>
+    <hr>
+    <!-- 이미지의 크기 설정방법 2) style 속성에 여러가지 디자인요소의 설정값을 줄 수 있다(;로 구분) -->
+    <img src="../images/renoir02.png" style="width: 30%;" >
+    <img src="../images/renoir02.png" style="width: 200px; height: 130px;" >
+
+    
+
+</body>
+
+</html>

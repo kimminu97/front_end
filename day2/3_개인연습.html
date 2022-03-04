@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네트워크 용어정리</title>
+    <style>
+        h1 {
+            background-color: azure;
+            text-align: center;
+            font-weight: bold;
+        }
+        dl{
+            padding: 10px;
+            
+        }
+        dt{
+            margin: 10px;
+            font-size: 1.2em;
+            border: 3px solid;
+            
+            
+        }
+        ul{
+            text-align: center;
+            background-color:aliceblue;
+        }
+        img{
+            float: left;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- 완료된 파일 메일로 제출
+    네트워크 기초에서 다룬 프로토콜 관련 용어 설명하는 페이지
+    태그는 지금까지 했던 것(이미지 포함) + css 적용 -->
+    <img src="../images/minicom.PNG" alt="minicon">
+    <h1 img src="../images/minicom.PNG">네트워크 용어 정리</h1>
+    <p style="text-align: right; margin-right: 60px;">김민우</p>
+    <hr>
+    <h3 style="font-size: 1.3em; text-align: center;">주요 용어 목차</h3>
+    <ul>
+        <li>
+            <a href="#n1">프로토콜</a>
+        </li>
+        <li>
+            <a href="#n2">OSI참조모델</a>
+        </li>
+        <li>
+            <a href="#n3">TCP/IP모델</a>
+        </li>
+        <li>
+            <a href="#n4">LAN(Local Area Network)</a>
+        </li>
+        <li>
+            <a href="#n5">WAN(Wide Area Network)</a>
+        </li>
+        <li>
+            <a href="#n6">MAC</a>
+        </li>
+        <li>
+            <a href="#n7">IP (Internet Protocol address, IP address)</a>
+        </li>
+        <li>
+            <a href="#n8">TCP</a>
+        </li>
+        <li>
+            <a href="#n9">http(HyperText Transfer Protocol)</a>
+        </li>
+    </ul>
+    <p style="text-align: right;">더 많은 정보 -> <a href="https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8C%80%EB%AC%B8">wikipedia</a></p><br>
+    <hr>
+    <dl>
+        <dt id="n1">프로토콜</dt>
+        <dd>컴퓨터 내부에서, 또는 컴퓨터 사이에서 데이터의 교환 방식을 정의하는 규칙 체계입니다.
+            기기 간 통신은 교환되는 데이터의 형식에 대해 상호 합의를 요구합니다.
+            이런 형식을 정의하는 규칙의 집합.</dd>
+        <dt id="n2">OSI참조모델</dt>
+        <dd>프로토콜을 7계층으로 분류
+            OSI 모형(Open Systems Interconnection Reference Model)은
+            국제표준화기구(ISO)에서 개발한 모델로, 컴퓨터 네트워크 프로토콜 디자인과 통신을
+            계층으로 나누어 설명한 것이다. 일반적으로 OSI 7 계층이라고 한다.</dd>
+        <dt id="n3">TCP/IP모델</dt>
+        <dd> " 4계층으로 분류
+            TCP/IP는 네트워크를 상호 연결시켜 정보를 전송할 수 있도록 하는 기능을 가진
+            다수의 프로토콜이 모여 있는 프로토콜의 집합
+            TC/IP의 가장 대표적인 프로토콜은 3계층의 IP와 4계층의 TC로 대부분의 응용서비스가
+            TCP상에서 이루어지나, 최근 인터넷의 단점을 보완하기 위해
+            UDP를 적극적으로 이용하는 추세임</dd>
+        <dt id="n4">LAN(Local Area Network)</dt>
+        <dd>근거리 통신망 즉 가까운 거리의 범위를 하는 네트워크
+            트워크 매체를 이용하여 집, 사무실, 학교 등의 건물과 같은
+            가까운 지역을 한데 묶는 컴퓨터 네트워크이다.
+            근거리 통신망에 사용하기 위해 흔히 쓰이는 기술로 이더넷과 와이파이가
+            있다. TCP/IP모델에 네트워크 인터페이스 계층에 해당한다.
+        </dd>
+        <dt id="n5">WAN(Wide Area Network)</dt>
+        <dd>LAN보다 범위가 넓은 광대역 통신망 ISP(Internet Service Provider)가
+            제공하는 서비스에 의해 구축된 네트워크
+            예로 서울캠퍼스와 타 지역캠퍼스 사이의 연결은 랜으로 연결하기는 물리적
+            거리가 제한되기에 WAN방식을 채택한다.</dd>
+        <dt id="n6">MAC</dt>
+        <dd>MAC 주소(Media Access Control Address)는 네트워크 세그먼트의 데이터 링크 계층에서 통신을
+            위한 네트워크 인터페이스에 할당된 고유 식별자이다. MAC 주소는 이더넷과 와이파이를 포함한 
+             대부분의 IEEE 802 네트워크 기술에 네트워크 주소로 사용된다.
+             TCP/IP모델에 네트워크 인터페이스 계층에 해당한다.</dd>
+        <dt id="n7">IP (Internet Protocol address, IP address)</dt>
+        <dd>컴퓨터 네트워크에서 장치들이 서로를 인식하고 통신을 하기 위해서 사용하는 특수한 번호이다.
+            네트워크에 연결된 장치가 라우터이든 일반 서버이든, 모든 기계는 이 특수한 번호를 
+           가지고 있어야 한다.  이 번호를 이용하여 발신자를 대신하여 메시지가 전송되고 수신자를 향하여 
+           예정된 목적지로 전달된다. TCP/IP모델에 인터넷 계층에 해당한다.</dd>
+        <dt id="n8">TCP</dt>
+        <dd>전송 제어 프로토콜(Transmission Control Protocol, TCP, 문화어: 전송조종규약)은
+            인터넷 프로토콜 스위트(IP)의 핵심 프로토콜 중 하나로, IP와 함께 TCP/IP라는 
+            명칭으로도 널리 불린다. ...  TCP/IP모델에 TCP는 전송 계층에 위치한다.</dd>
+        <dt id="n9">http(HyperText Transfer Protocol)</dt>
+        <dd>W3 상에서 정보를 주고받을 수 있는 프로토콜이다.
+            주로 HTML 문서를 주고받는 데에 쓰인다. 정보가 모니터와 같은 출력 장치를 통해 
+            사용자에게 나타나는 것이다.  TCP/IP모델에 응용계층에 해당한다.</dd>
+    </dl>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- fontawesome 이라는 자바스크립트 라이브러리 활용하여 아이콘 사용을 할 수 있습니다.
+        아이콘을 이미지가 아닌 글꼴처럼 다룰수 있습니다. -->
+    <script src="https://kit.fontawesome.com/73131eb43a.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+        *{  /* 모든 요소 */
+            font-family:'Gamja Flower', cursive; ;
+        }
+        input[type=text],input[type=password],input[type=email]{
+            width:70%;  /* 부모태그 td너비의 70% */
+        }
+        input[type=number]{
+            width: 20%;
+        }
+        table{
+            border-top: 1px solid silver;
+            border-bottom: 1px solid silver;
+        }
+        input,select{
+            padding: 6px;
+            border-radius: 4px;
+            border : 2px solid #ccc;
+            margin-top: 15px;
+        }
+        
+        
+        .c1{
+            display: inline-block;  /* label 태그에는 너비가 적용안됩니다.(block요소가 아님)->너비가 적용되도록 함 */
+            width: 70%;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            background-color: purple;
+            color: aliceblue;
+            margin-top: 15px;
+            
+        }
+        input[type=submit],input[type=reset]{
+            padding: 7px 15px;
+            margin: 7px;
+            background-color: rgb(209, 74, 209);
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* 선택자 : 마우스가 놓여질때 변경될 css */
+       input:hover{
+            background-color: rgb(130, 58, 130);
+        }
+      
+    </style>
+</head>
+<body>
+    
+    <div style="width: 70%; margin: auto;"> <!-- table을 포함하는 박스 -->
+    <h2 style="text-align: center;">회원 등록
+        <i class="fa-solid fa-camera-retro" style="font-size: 1.5em;" ></i></h2>
+    <form action=""> <!-- 3)입력요소들이 서버로 전달되기 위해 꼭 필요한 태그입니다. 
+                            입력요소들은 form태그 안에 작성합니다.
+                            4) 입력요소의 값들을 구분하는 식별자는 name 속성으로 설정
+                            action 속성값은 서버의 url(대체로 파일명) 입니다.-->
+    <table style="width: 100%;">
+        <tr>
+            <!-- 1) for속성은 연결될 입력요소의 id속성값으로 합니다 -->
+            <td class="c1"><label for="name">이름</label></td> 
+            <!-- 1) id 속성값은 태그요소를 식별하고 label태그와 함께 동작
+                label태그 클릭하면 연결된 입력요소에 포커스가 이동 -->
+            <td><input type="text" id="name" name="name"></td>
+        </tr>
+        <tr>
+            <td class="c1"><label for="password">패스워드</label></td>
+            <td><input type="password"id="password" name="password"></td>
+        </tr>
+        <tr>
+            <td class="c1"><label for="email">이메일</label></td>
+            <td><input type="email" id="email" name="email"></td>
+        </tr>
+        <tr>
+            <td class="c1"><label for="age">나이</label></td>
+            <td><input type="number"value="30" min="20"max="40" id="age" name="age"></td>
+        </tr>
+        <!-- 7) 위에 4개는 사용자가 입력한 값이 value 속성이 됩니다. -->
+        <tr>
+            <td class="c1"><label for="address">주소</label></td>
+            <td>
+                <!-- 7) value 속성값이 서버로 전달됩니다. -->
+                <select name="addr" id="address">
+                    <option value="서울">서울</option>
+                    <option value="인천">인천</option>
+                    <option value="대전" selected>대전</option>
+                    <option value="광주">광주</option>
+                    <option value="부산">부산</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">성별</td> 
+            <!-- 2) checked="checked" : 초기선택(checked만 써도 됩니다.)
+                name 속성값을 같게 주면 여러개 라디오버튼 중에 하나만 선택됩니다. -->
+            <td><input type="radio" name="gender" checked="checked" id="male" value="male">
+                <label for="male">남자</label>
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="female">여자</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="c1">취미</td>
+            <td>
+                <!-- 5)checkbox는 다중선택이 가능하고 서버에서는 배열로 처리할수 있습니다
+                    name 속성값을 동일하게 합니다. -->
+                <input type="checkbox" id="hobby1" name="hobby" value="축구">
+                <label for="hobby1">축구</label>
+                <input type="checkbox" id="hobby2" name="hobby" value="농구">
+                <label for="hobby2">농구</label>
+                <input type="checkbox" id="hobby3" name="hobby" value="스키">
+                <label for="hobby3">스키</label>
+                <input type="checkbox" id="hobby4" name="hobby" value="달리기">
+                <label for="hobby4">달리기</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"> <!-- 위의 행은 모두 2칸 -> 여기서는 합치기 -->
+                <!-- 6) submit : form의 입력요소 값들을 서버에 전송(제출) -->
+                <input type="submit"value="가입하기">
+               
+                <input type="reset" value="다시쓰기"> <!-- 입력요소의 내용이 초기화 됩니다. -->
+                
+            </td>
+        </tr>
+        <!-- 실행하고 submit한 후에 url을 확인
+        http://127.0.0.1:5500/day3/1_form.html?name=%EA%B9%80%EB%AF%BC%EC%9A%B0&password=1234&
+        email=coco0853%40naver.com&age=26&addr=&gender=on&hobby=on
+        ? 뒤는 query string 라고 합니다. query string은 key=value 형식이고 &로 구분합니다.
+        key는 파라미터 이름, value는 파라미터 값
+        select,radio,checkbox 입력요소에 value 속성값 설정하고 다시 url 확인
+        http://127.0.0.1:5500/day3/1_form.html?name=%EA%B9%80%EB%AF%BC%EC%9A%B0&password=1234&
+        email=coco0853%40naver.com&age=26&addr=%EC%84%9C%EC%9A%B8&gender=male&hobby=%EC%B6%95%EA%B5%AC
+        -->
+    </table>
+    </form>
+</div>
+</body>
+</html>

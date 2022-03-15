@@ -25,7 +25,7 @@ console.log(part2); // 음수인 경우 위치는 문자열 끝에서
  console.log(part3)     //slice와 유사
 
  let str4 = "Apple, Banana, Kiwi";
-let part4 = str.substr(7, 6);
+let part4 = str4.substr(7, 6);
 console.log(part4)  //두번째 인자가 추출된 부품의 길이를 지정
 
 let text3 = "Please visit Microsoft and Microsoft!";
@@ -48,3 +48,9 @@ let padded = text.padStart(4,0);    //0005
 
 let text5 = "HELLO WORLD";
 let char = text5.charCodeAt(0); //returns a UTF-16 code
+
+//문자열 검색 메소드 : 사용법 자바와 동일
+// String indexOf()
+// String lastIndexOf()
+// String startsWith()
+// String endsWith()

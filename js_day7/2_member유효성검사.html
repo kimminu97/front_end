@@ -42,7 +42,7 @@
             margin-top: 15px;
             
         }
-        input[type=submit],input[type=reset]{
+        input[type=submit],input[type=reset],input[type=button]{
             padding: 7px 15px;
             margin: 7px;
             background-color: rgb(209, 74, 209);
@@ -86,7 +86,8 @@
         </tr>
         <tr>
             <td class="c1"><label for="age">나이</label></td>
-            <td><input type="number"value="30" min="20"max="40" id="age" name="age"></td>
+            <td><input type="number"value="30" id="age" name="age"></td>
+            <!-- min,max 설정 삭제 후 함수로 체크합니다. -->
         </tr>
         <!-- 7) 위에 4개는 사용자가 입력한 값이 value 속성이 됩니다. -->
         <tr>
@@ -133,8 +134,9 @@
                 <input type="submit"value="가입하기">
                
                 <input type="reset" value="다시쓰기"> <!-- 입력요소의 내용이 초기화 됩니다. -->
-               
-                
+                 <!-- 데이터의 효용성이 있는지 검사 -->
+                 <input type="button" onclick="valid_check()" value="유효성 검사">
+                 
             </td>
         </tr>
         <!-- 실행하고 submit한 후에 url을 확인
@@ -150,7 +152,74 @@
     </form>
 </div>
 <script>
+    function valid_check(){
+        /* 필수입력 이름, 이메일로 합니다 */
+        const frm = document.forms[0];
+        const name_ = frm.name;  /* name 속성 확인 */
+        const email_ = frm.email;
+        const password_ = frm.password;
+        let isValid = true;
+        const temp = email_.value;      //자주 사용될 것은 변수로 저장.
 
+        if(name_.value == ""){
+            alert('이름 입력은 필수입니다.')
+            name_.focus();
+            isValid=false;
+        } else
+        if(password_.value.length <= 5){
+            alert('비밀번호는 6글자 이상입니다.')
+            password_.focus();
+            isValid=false;
+        } else
+        if(email_.value==""){
+            alert('이메일 입력은 필수 입니다.')
+            email_.focus()
+            isValid=false;
+        } else
+        if(!(temp.endsWith('.net') || temp.endsWith('.com')) || temp.indexOf('@') <= 0) {               
+           //1)과 2)를 동시에 만족하는 경우가 통과이므로 그 반대로 조건식 작성하세요.
+           alert('이메일 형식이 잘못되었습니다.')
+           email_.focus();
+           isValid=false;
+       } 
+        /* 패스워드 길이 검사 : 패스워드 길이는 6글자 이상 */
+        
+      /* 이메일 검사 : 1) .net 또는 .com으로 끝나야한다. 
+        //    2) @를 포함해야한다.단, 문자위치 2번째 이후에  (논리연산: && ,|| , !)*/
+        
+       // temp.endsWith('.net')  , temp.endsWith('.com') , temp.indexOf('@')==-1 (찾는 문자열 없을때 -1)
+       // 참고 : a && b 의 반대 조건식은 !a || !b   , a || b의 반대 조건식은 !a && !b 
+       // 예시 : 1)과 2)를 동시에 만족하는 조건식
+       //       (temp.endsWith('.net') || temp.endsWith('.com')) && temp.indexOf('@') > 0
+         //실제로 이메일 주소 형식을 검사하는 것은 복잡한 조건이며, 이것은 '정규식'이라는 것으로 검사한다.
+       //@가 2개인지 검사하기. 첫번째 @이후 문자열을 추출하여 그중 @이 있으면 false
+
+       /* 나이가 20세 미만이면 alert으로 청소년이라 메세지 출력(단,isValid는 변경안함*/
+       if(frm.age.value <20){
+           alert('청소년 입니다.')
+       }
+
+       /* 취미를 1개 이상 꼭 선택하도록 합니다. : 취미 체크박스의 name이 동일한 값 hobby
+                                                -> 배열로 처리됩니다. */
+        let cnt = 0;
+        frm.hobby.forEach(element => {      //element는 name이 hobby인 input요소 입니다.
+            // alert(`배열요소 ${element.value} : ${element.checked}`)
+            if(element.checked) cnt++;
+        });
+        if(cnt==0){
+            alert('취미를 1개 이상 선택해 주세요')
+            isValid=false;
+        }
+        if(isValid){
+            alert('유효성 검사 통과!!')
+            frm.action = '4_succcess.html'; // 유효성 통과완료되면 서버로 데이터 전달하기
+                        //처리할 서버의 url(action값)을 아직 모름. 그래서 success.html로 이동
+            frm.submit();       // 서버로 데이터 전달하기 동작                                     
+        }else
+            alert('유효성 검사 실패!!')
+    }
+
+    
 </script>
 </body>
 </html>

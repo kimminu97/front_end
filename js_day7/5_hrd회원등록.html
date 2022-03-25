@@ -71,6 +71,16 @@
            </form>
         </section>
         <script>
+            //브라우저에 문서가 렌더링될때 바로적용 (가입일자 : 오늘날짜 자동으로 출력)
+            const today = new Date()
+            const year = today.getFullYear()
+            // const month = (today.getMonth()+1).toString().padStart(2,0);
+            // const date_ = today.getDate().toString().padStart(2,0)
+            // document.forms[0].reg_date.value=[year,month,date_].join('-')
+            const month = today.getMonth()+1
+            const date_ = today.getDate()
+            document.forms[0].reg_date.value=year.toString()+month.toString().padStart(2,0)+date_.toString().padStart(2,0)
+            
             function valid_check(){
                 const frm = document.forms[0];
                const name_ = frm.name;  
@@ -81,7 +91,7 @@
                const temp = grade_.value;
                let isValid = true;
                const grades=['A','B','C','D'];
-               
+               console.log(`테스트 : ${city_code_.value.split('')} (${typeof city_code_.value.split('')})`);
 
                if(name_.value == ""){
             alert('이름 입력은 필수입니다.')
@@ -110,12 +120,28 @@
              alert('고객등급 형식이 잘못되었습니다.')
            grade_.focus();
            isValid=false;
-       }
+       }else
        if(city_code_.value.length != 2||isNaN(city_code_.value)){ //isNaN:숫자면 false 아니면 true반환
            alert('도시코드는 2자리 숫자입니다.')
            city_code_.focus();
            isValid=false;
-       }
+       } //이코드 대체할 forEach
+      /*  if(city_code_.value.length != 2){
+           alert('도시코드는 2자리 숫자입니다.')
+           isValid=false
+       }else{   //코드의 자리수가 커서 검사할 요소가 많을 때
+           let cnt=0
+           city_code_.value.split('').foreach(function(value){
+           //cityf문자열 데이터를 배열로 변환하고 각 요소값으로 이 함수를 실행합니다
+           //이 때 문자는 처리 조건에 따라 '0'~'9'사이여야 합니다.
+           if(!(value>'0' &&value<'9')){
+               isValid=false;
+               cnt++;
+            }
+        })
+        if(cnt>0)
+            alert('도시코드는 숫자만 입력하세요')
+    } */
        if(isValid){
             alert('유효성 검사 통과!!')
             frm.action = '4_succcess.html'; // 유효성 통과완료되면 서버로 데이터 전달하기

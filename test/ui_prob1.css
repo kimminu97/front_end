@@ -1,0 +1,20 @@
+/* 작성자 : 김민우 */
+
+table{
+    margin: auto;
+    width: 60%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th{
+    background-color: coral;
+}
+.right{
+    text-align: right;
+}
+h4{
+    text-align: center;
+}
+td,th{
+    border: 0.5px solid gray;
+}
